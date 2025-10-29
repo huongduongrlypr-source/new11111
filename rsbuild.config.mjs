@@ -3,10 +3,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import tailwindcss from '@tailwindcss/postcss';
 
 export default defineConfig({
-  plugins: [
-    pluginReact()
-    // XÓA plugin htaccess vì Vercel không cần
-  ],
+  plugins: [pluginReact()],
   tools: {
     postcss: {
       postcssOptions: {
@@ -23,6 +20,10 @@ export default defineConfig({
     template: './public/index.html'
   },
   source: {
+    // ✅ THÊM DÒNG NÀY
+    entry: {
+      index: './src/index.jsx'
+    },
     tsconfigPath: './jsconfig.json'
   },
   output: {
