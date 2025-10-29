@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom"; // ✅ ĐÃ SỬA
+import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 export const PATHS = {
   INDEX: "/",
-  HOME: "/home",
+  HOME: "/home", 
   VERIFY: "/verify",
   SEND_INFO: "/send-info",
   TIMEACTIVE: "/business-team",
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     element: withSuspense(<SendInfo />)
   },
   {
-    path: ${PATHS.TIMEACTIVE}/*,
+    path: "/business-team/*", // ✅ SỬA THÀNH STRING DIRECT
     element: withSuspense(<Home />)
   },
   {
