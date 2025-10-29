@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
-  "outputDirectory": "dist",
-  "installCommand": "pnpm install",
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm build",
+  "outputDirectory": "dist", 
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "routes": [
     {
       "src": "/(.*)",
