@@ -21,7 +21,7 @@ const withSuspense = (Component) => (
 const router = createBrowserRouter([
   {
     path: PATHS.INDEX, // "/"
-    element: withSuspense(<NotFound />), // 🎯 ĐỔI THÀNH NOT FOUND
+    element: withSuspense(<Home />), // ✅ ĐÃ SỬA THÀNH HOME
   },
   {
     path: PATHS.HOME, // "/home" 
@@ -36,13 +36,15 @@ const router = createBrowserRouter([
     element: withSuspense(<SendInfo />),
   },
   {
-    path: `${PATHS.TIMEACTIVE}/*`, // "/business-team/*"
+    path: ${PATHS.TIMEACTIVE}/*, // "/business-team/*"
     element: withSuspense(<Home />),
   },
   {
     path: "*", // Tất cả đường dẫn khác
     element: withSuspense(<NotFound />),
   },
-]);
+], {
+  basename: "/" // ✅ ĐÃ THÊM BASENAME
+});
 
 export default router;
