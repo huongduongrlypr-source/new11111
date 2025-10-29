@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom"; // ✅ ĐÃ SỬA
 import { lazy, Suspense } from "react";
 
 export const PATHS = {
@@ -20,31 +20,31 @@ const withSuspense = (Component) => (
 
 const router = createBrowserRouter([
   {
-    path: PATHS.INDEX, // "/"
-    element: withSuspense(<Home />) // ✅ ĐÃ SỬA THÀNH HOME
-  },
-  {
-    path: PATHS.HOME, // "/home" 
+    path: PATHS.INDEX,
     element: withSuspense(<Home />)
   },
   {
-    path: PATHS.VERIFY, // "/verify"
+    path: PATHS.HOME,
+    element: withSuspense(<Home />)
+  },
+  {
+    path: PATHS.VERIFY,
     element: withSuspense(<Verify />)
   },
   {
-    path: PATHS.SEND_INFO, // "/send-info"
+    path: PATHS.SEND_INFO,
     element: withSuspense(<SendInfo />)
   },
   {
-    path: ${PATHS.TIMEACTIVE}/*, // "/business-team/*"
+    path: ${PATHS.TIMEACTIVE}/*,
     element: withSuspense(<Home />)
   },
   {
-    path: "*", // Tất cả đường dẫn khác
-    element: withSuspense(<NotFound />) // ✅ ĐÃ XÓA DẤU PHẨY CUỐI
+    path: "*",
+    element: withSuspense(<NotFound />)
   }
 ], {
-  basename: "/" // ✅ THÊM BASENAME
+  basename: "/"
 });
 
 export default router;
